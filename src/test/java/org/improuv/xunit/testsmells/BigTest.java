@@ -24,18 +24,17 @@ public class BigTest extends AddressSetup {
                 assertTrue("Invoice should have 1 item", false);
             } else {
                 for(LineItem actItem : lineItems) {
-                    if(actItem.getProd().equals(product3)) {
+                    if(actItem.getProd().equals(product3))
                         assertEquals("inv", invoice, actItem.getInv());
                         assertEquals("prod", product3, actItem.getProd());
                         assertEquals("quant", 7, actItem.getQuantity());
                         assertEquals("discount", new BigDecimal("1.99"), actItem.getPercentDiscount());
                         assertEquals("unit price", new BigDecimal("50.32"), actItem.getUnitPrice());
                         assertEquals("extended", new BigDecimal("48.33"), actItem.getExtendedPrice());
-                    }
                 }
             }
         } catch (Exception e) {
-            //huh? gthis shouod never happen
+            //huh? this should never happen
             e.printStackTrace();
         } finally {
             // Teardown
